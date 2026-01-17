@@ -1,0 +1,303 @@
+/* Dashboard.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  /* DARK THEME PALETTE */
+  --bg-dark: #121212;        /* Main Page Background */
+  --bg-card: #1e1e1e;        /* Cards / Secondary Background */
+  --text-main: #ffffff;      /* Main Headings */
+  --text-muted: #a0a0a0;     /* Subtitles */
+  --accent: #FFD700;         /* Gold/Yellow Highlight (Matches Typeform vibe) */
+  --btn-bg: #ffffff;         /* Primary Button Background */
+  --btn-text: #000000;       /* Primary Button Text */
+  
+  --spacing: 24px;
+  --radius: 12px;
+  --header-height: 80px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* --- HEADER --- */
+.typeform-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: var(--header-height);
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background-color: rgba(18, 18, 18, 0.9); /* Semi-transparent dark */
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-nav { display: flex; align-items: center; gap: 30px; }
+.header-nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.header-nav a:hover { color: var(--text-main); }
+
+.login-link { margin-right: 20px; }
+.signup-link {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+.signup-link:hover { transform: scale(1.05); }
+
+/* --- HERO SECTION --- */
+.typeform-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+}
+
+.hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 60px;
+}
+
+.typeform-hero-content { flex: 1; }
+
+.typeform-tag {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.typeform-title {
+  font-size: 56px;
+  font-weight: 300; /* Thinner font looks cleaner in dark mode */
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+.typeform-title strong { font-weight: 700; }
+.highlight { 
+  color: var(--accent); 
+  position: relative;
+  display: inline-block;
+}
+
+.typeform-subtitle {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.typeform-actions { display: flex; gap: 15px; }
+
+.typeform-primary-btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 14px 32px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.typeform-primary-btn:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.typeform-secondary-btn {
+  background-color: transparent;
+  color: var(--text-main);
+  padding: 14px 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.typeform-secondary-btn:hover {
+  border-color: var(--text-main);
+  background: rgba(255,255,255,0.05);
+}
+
+/* --- HERO IMAGE (Abstract Shapes) --- */
+.hero-image-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-circle-bg {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle at 30% 30%, #333, #000);
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-image-wrapper {
+  width: 380px;
+  height: 600px; /* Tall phone-like aspect ratio */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border: 8px solid #333;
+  position: relative;
+  background: #000;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- INTERACTIVE SECTION --- */
+.typeform-question {
+  background-color: #000; /* Deep black for contrast */
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.question-container {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.question-text {
+  font-size: 32px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.question-hint {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 50px;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+  background: var(--bg-card);
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.map-wrapper {
+  height: 450px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Controls Side */
+.typeform-controls {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-field { margin-bottom: 25px; }
+.form-field label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.typeform-input, .typeform-select {
+  width: 100%;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.typeform-input:focus, .typeform-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #333;
+}
+
+.typeform-start-btn {
+  background: var(--accent);
+  color: #000;
+  width: 100%;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+.typeform-start-btn:hover {
+  background: #fff;
+  transform: scale(1.02);
+}
+
+.typeform-hint {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+

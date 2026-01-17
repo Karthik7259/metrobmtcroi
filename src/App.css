@@ -1,0 +1,317 @@
+/* =========================================
+   TAILWIND MUST COME FIRST
+========================================= */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   GLOBAL LAYOUT
+========================================= */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: #f1f3f5;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+.sidebar {
+  width: 380px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #212529; /* 🔴 CRITICAL FIX */
+}
+
+/* =========================================
+   MAP
+========================================= */
+.map-container {
+  flex: 1;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Slight greyscale for map contrast */
+.leaflet-tile-pane {
+  filter: grayscale(40%);
+}
+
+/* =========================================
+   CARDS
+========================================= */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #eee;
+  color: #212529; /* 🔴 CRITICAL FIX */
+}
+
+.header-box {
+  margin-bottom: 10px;
+}
+
+.header-box h2 {
+  margin: 0;
+  color: #333;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #212529;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+.primary-btn {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.primary-btn:hover {
+  background-color: #0056b3;
+}
+
+.secondary-btn {
+  background: #e9ecef;
+  border: 1px solid #ced4da;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 4px;
+  color: #212529;
+}
+
+.reset-btn {
+  background: none;
+  border: none;
+  color: #666;
+  text-decoration: underline;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* =========================================
+   STATUS INDICATORS
+========================================= */
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.status-ok {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-waiting {
+  color: #fd7e14;
+}
+
+/* =========================================
+   RESULTS
+========================================= */
+.stat-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.stat-val {
+  font-size: 18px;
+  font-weight: bold;
+  color: #212529;
+}
+
+.roi-display {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.verdict-box {
+  padding: 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #212529;
+}
+
+/* =========================================
+   META INFO
+========================================= */
+.meta-info {
+  font-size: 10px;
+  color: #999;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* =========================================
+   DARK MODE STYLES
+========================================= */
+
+/* Dark mode for entire app */
+html.dark {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --border-color: #404040;
+  --input-bg: #2d2d2d;
+  --input-border: #404040;
+}
+
+html.dark body {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+html.dark .dashboard-container {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+html.dark .sidebar {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-right: 1px solid #404040;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .card {
+  background: #2d2d2d;
+  border: 1px solid #404040;
+  color: #e0e0e0;
+}
+
+html.dark .header-box h2 {
+  color: #e0e0e0;
+}
+
+html.dark input,
+html.dark select {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #404040;
+}
+
+html.dark input::placeholder {
+  color: #a0a0a0;
+}
+
+html.dark .secondary-btn {
+  background: #3d3d3d;
+  border: 1px solid #404040;
+  color: #e0e0e0;
+}
+
+html.dark .reset-btn {
+  color: #a0a0a0;
+}
+
+html.dark .stat-val {
+  color: #e0e0e0;
+}
+
+html.dark .roi-display {
+  background: #3d3d3d;
+  color: #e0e0e0;
+}
+
+html.dark .verdict-box {
+  background: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #404040;
+}
+
+html.dark .meta-info {
+  color: #808080;
+}
+
+/* Dark mode for Leaflet maps */
+html.dark .leaflet-control {
+  background: #2d2d2d !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #404040 !important;
+}
+
+html.dark .leaflet-control a,
+html.dark .leaflet-control button {
+  color: #e0e0e0 !important;
+  background: #3d3d3d !important;
+}
+
+html.dark .leaflet-control a:hover,
+html.dark .leaflet-control button:hover {
+  background: #4d4d4d !important;
+}
+
+html.dark .leaflet-tile {
+  filter: brightness(0.8) invert(1) contrast(1.1);
+}
+
+/* Dark mode for popups */
+html.dark .leaflet-popup-content {
+  background: #2d2d2d;
+  color: #e0e0e0;
+}
+
+html.dark .leaflet-popup-tip {
+  background: #2d2d2d;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
